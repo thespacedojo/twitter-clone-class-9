@@ -1,4 +1,5 @@
 import React from 'react';
+import AccountButton from './containers/account_button.js'
 
 export const AppNavbar = () => (
   <nav id="main-navigation" className="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -23,6 +24,7 @@ export const AppNavbar = () => (
 
       <ul className="nav navbar-nav navbar-right">
         <li><a href="#"><i className="fa fa-fw fa-pencil-square-o"></i> Compose a Tweet</a></li>
+        <AccountButton />
       </ul>
       </div>
 
