@@ -3,7 +3,7 @@ import {mount} from 'react-mounter';
 
 import {AppLayout} from './layout.jsx';
 
-import {TweetStream} from './components/tweet_stream.jsx';
+import TweetStream from './containers/tweet_stream.js';
 import {Profile} from './components/profile.jsx';
 import {Notifications} from './components/notifications.jsx';
 import SignIn from './components/sign-in.jsx';

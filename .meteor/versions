@@ -14,6 +14,7 @@ callback-hook@1.0.5-beta.11
 check@1.1.1-beta.11
 coffeescript@1.0.12-beta.11
 cosmos:browserify@0.9.4
+dburles:collection-helpers@1.0.4
 ddp@1.2.2
 ddp-client@1.2.2-beta.11
 ddp-common@1.2.2
@@ -40,6 +41,7 @@ launch-screen@1.0.6-beta.11
 livedata@1.0.15
 localstorage@1.0.6-beta.11
 logging@1.0.9-beta.11
+matb33:collection-hooks@0.8.1
 meteor@1.1.11-beta.11
 meteor-base@1.0.1
 meteor-env-dev@0.0.1-beta.11

@@ -1,6 +1,8 @@
 import React from 'react';
+import {AddTweet} from './add_tweet.jsx';
+import {Tweet} from './tweet.jsx';
 
-export const TweetStream = () => (
+export const TweetStream = ({tweets}) => (
   <div id="stream" className="container">
     <div className="row">
       <div className="col-md-4 col-lg-3">
@@ -17,22 +19,22 @@ export const TweetStream = () => (
             </div>
 
             <table id="profile-stats" className="table">
-              <tr className="head">
-                <td><strong>Tweets</strong></td>
-                <td><strong>Following</strong></td>
-                <td><strong>Followers</strong></td>
-              </tr>
-              <tr className="numbers">
-                <td>500</td>
-                <td>240</td>
-                <td>1,600</td>
-              </tr>
+              <tbody>
+                <tr className="head">
+                  <td><strong>Tweets</strong></td>
+                  <td><strong>Following</strong></td>
+                  <td><strong>Followers</strong></td>
+                </tr>
+                <tr className="numbers">
+                  <td>500</td>
+                  <td>240</td>
+                  <td>1,600</td>
+                </tr>
+              </tbody>
             </table>
           </div>
 
-          <div className="panel-footer">
-            <input type="text" className="form-control" placeholder="Compose new Tweet..." />
-          </div>
+          <AddTweet />
         </div>
 
         <div id="trending" className="panel panel-default">
@@ -55,60 +57,11 @@ export const TweetStream = () => (
             <h4 className="list-group-item-heading">Tweets</h4>
           </li>
 
-
-          <li className="list-group-item tweet">
-
-            <h5 className="tweet-author">Ned Stark <span className="author-info"><a href="#">@nedstark &middot; 18m</a></span></h5>
-
-            <p className="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione facere expedita mollitia draco dormiens. #yum #food</p>
-
-            <span className="expand"><a href="#">Expand</a></span>
-
-            <div className="tweet-options pull-right">
-              <button type="button" className="btn btn-default btn-xs"><i className="fa fa-reply"></i> Reply</button>
-              <button type="button" className="btn btn-default btn-xs"><i className="fa fa-retweet"></i> Retweet</button>
-              <button type="button" className="btn btn-default btn-xs"><i className="fa fa-star"></i> Favorite</button>
-            </div>
-          </li>
-
-          <li className="list-group-item tweet">
-            <h5 className="tweet-author">Barney Rubble <span className="author-info"><a href="#">@barneyrubble &middot; 16m</a></span></h5>
-            <p className="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates minus rem vero quidem eligendi consectetur harum quod ratione debitis. </p>
-
-            <span className="expand"><a href="#">Expand</a></span>
-
-            <div className="tweet-options pull-right">
-              <button type="button" className="btn btn-default btn-xs"><i className="fa fa-reply"></i> Reply</button>
-              <button type="button" className="btn btn-default btn-xs"><i className="fa fa-retweet"></i> Retweet</button>
-              <button type="button" className="btn btn-default btn-xs"><i className="fa fa-star"></i> Favorite</button>
-            </div>
-          </li>
-
-          <li className="list-group-item tweet">
-            <h5 className="tweet-author">Dana Scully <span className="author-info"><a href="#">@scully &middot; 25m</a></span></h5>
-            <p className="list-group-item-text">Dolor sit amet, consectetur adipisicing elit. Voluptates minus rem vero quidem eligendi consectetur harum quod rati.</p>
-
-            <span className="expand"><a href="#">Expand</a></span>
-
-            <div className="tweet-options pull-right">
-              <button type="button" className="btn btn-default btn-xs"><i className="fa fa-reply"></i> Reply</button>
-              <button type="button" className="btn btn-default btn-xs"><i className="fa fa-retweet"></i> Retweet</button>
-              <button type="button" className="btn btn-default btn-xs"><i className="fa fa-star"></i> Favorite</button>
-            </div>
-          </li>
-
-          <li className="list-group-item tweet">
-            <h5 className="tweet-author">Buffy Summers <span className="author-info"><a href="#">@nedstark &middot; 26m</a></span></h5>
-            <p className="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione facere expedita mollitia draco dormiens. #yum #food</p>
-
-            <span className="expand"><a href="#">Expand</a></span>
-
-            <div className="tweet-options pull-right">
-              <button type="button" className="btn btn-default btn-xs"><i className="fa fa-reply"></i> Reply</button>
-              <button type="button" className="btn btn-default btn-xs"><i className="fa fa-retweet"></i> Retweet</button>
-              <button type="button" className="btn btn-default btn-xs"><i className="fa fa-star"></i> Favorite</button>
-            </div>
-          </li>
+          {
+            tweets.map(function(tweet) {
+              return <Tweet key={tweet._id} tweet={tweet} />
+            })
+          }
 
           <li className="list-group-item load-more">
             <a href="#">Load more tweets</a>
@@ -139,3 +92,5 @@ export const TweetStream = () => (
     </div>
   </div>
 );
+
+
