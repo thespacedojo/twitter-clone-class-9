@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "moment": "^2.11.2"
+    "moment": "^2.11.2",
+    "react-bootstrap": "^0.28.3"
   },
   "devDependencies": {
     "react": "^0.14.7",

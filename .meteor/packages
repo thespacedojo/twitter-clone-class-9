@@ -24,3 +24,4 @@ accounts-base
 accounts-password
 matb33:collection-hooks
 dburles:collection-helpers
+ultimatejs:tracker-react

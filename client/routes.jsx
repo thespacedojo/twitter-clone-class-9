@@ -8,6 +8,8 @@ import {Profile} from './components/profile.jsx';
 import {Notifications} from './components/notifications.jsx';
 import SignIn from './components/sign-in.jsx';
 import SignUp from './components/sign-up.jsx';
+import {clearFlashMessages} from './components/flash_messages.jsx'
+FlowRouter.triggers.exit([clearFlashMessages]);
 
 FlowRouter.route("/", {
   name: 'Home',

@@ -1,5 +1,6 @@
 import React from 'react';
 import {Tweets} from '../../lib/collections.js';
+import {FlashMessages} from './flash_messages.jsx';
 
 export class AddTweet extends React.Component {
   addTweet(event) {
@@ -8,7 +9,9 @@ export class AddTweet extends React.Component {
     Tweets.insert({tweetText: this.refs.tweetText.value}, (err, id) => {
       if (err) {
         console.log(err);
+        FlashMessages.insert({type: 'danger', message: err.reason});
       } else {
+        FlashMessages.insert({type: 'success', message: 'Your tweet was added!'});
         form.reset();
       }
     })
