@@ -7,7 +7,7 @@ class SignUp extends React.Component {
     password = this.refs.password.value;
     username = this.refs.username.value;
     name = this.refs.name.value;
-    profile = {name}
+    profile = {name, followingIds: []}
     Accounts.createUser({email, password, username, profile}, (error) => {error ? console.log(error) : FlowRouter.go('/')})
   }
   render() {

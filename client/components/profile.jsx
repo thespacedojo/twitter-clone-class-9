@@ -5,6 +5,7 @@ class Profile extends React.Component {
   constructor() {
     super();
     this.followUser = this.followUser.bind(this);
+    this.unfollowUser = this.unfollowUser.bind(this);
   }
   following() {
     if (this.props.currentUser.profile && this.props.currentUser.profile.followingIds) {
@@ -16,6 +17,10 @@ class Profile extends React.Component {
   followUser(event) {
     const userId = this.props.userProfile._id;
     Meteor.call('followUser', userId);
+  }
+  unfollowUser(event) {
+    const userId = this.props.userProfile._id;
+    Meteor.call('unfollowUser', userId);
   }
   render() {
     return (
@@ -43,7 +48,7 @@ class Profile extends React.Component {
             </ul>
 
             <ul className="nav navbar-nav navbar-right">
-              {this.following() ? <UnfollowButton /> : <FollowButton followUser={this.followUser} />}
+              {this.following() ? <UnfollowButton unfollowUser={this.unfollowUser} /> : <FollowButton followUser={this.followUser} />}
             </ul>
 
 
