@@ -1,7 +1,22 @@
 import {Tweets} from '../lib/collections.js';
 
-Meteor.publish('tweets', function() {
-  return Tweets.find();
+Meteor.publish('myTweets', function() {
+  this.autorun(function() {
+    let cursors = [];
+
+    let user = Meteor.users.findOne(this.userId);
+    let followingIds = [];
+    followingIds.push(user.profile.followingIds);
+    followingIds.push(this.userId);
+    followingIds = _.flatten(followingIds);
+
+    users = Meteor.users.find({_id: {$in: followingIds}}, {fields: {profile: 1, username: 1}});
+    tweets = Tweets.find({userId: {$in: followingIds}});
+
+    cursors.push(tweets);
+    cursors.push(users);
+    return cursors;
+  })
 });
 
 Meteor.publish('profile', function(username) {

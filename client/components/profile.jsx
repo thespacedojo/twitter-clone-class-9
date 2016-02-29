@@ -8,7 +8,7 @@ class Profile extends React.Component {
     this.unfollowUser = this.unfollowUser.bind(this);
   }
   following() {
-    if (this.props.currentUser.profile && this.props.currentUser.profile.followingIds) {
+    if (this.props.currentUser && this.props.currentUser.profile && this.props.currentUser.profile.followingIds) {
       return _.contains(this.props.currentUser.profile.followingIds, this.props.userProfile._id)
     } else {
       return false
@@ -62,8 +62,6 @@ class Profile extends React.Component {
               <div className="profile-information">
                 <img src="https://pbs.twimg.com/profile_images/431476628166696960/xQCVJI_u_400x400.jpeg" alt="" className="profile-image" />
 
-                <h3 className="username">{this.props.userProfile.profile.name}</h3>
-                <span className="handle">@{this.props.userProfile.username}</span>
                 <p className="user-profile-description"></p>
 
                 <ul className="user-profile-info">

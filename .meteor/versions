@@ -59,6 +59,11 @@ npm-bcrypt@0.7.8_2
 npm-mongo@1.4.40-beta.11
 observe-sequence@1.0.8-beta.11
 ordered-dict@1.0.4
+peerlibrary:assert@0.2.5
+peerlibrary:fiber-utils@0.6.0
+peerlibrary:reactive-mongo@0.1.1
+peerlibrary:reactive-publish@0.2.0
+peerlibrary:server-autorun@0.5.2
 promise@0.5.2-beta.11
 random@1.0.6-beta.11
 rate-limit@1.0.1-beta.11
