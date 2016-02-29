@@ -2,7 +2,7 @@ import React from 'react';
 import {AddTweet} from './add_tweet.jsx';
 import {Tweet} from './tweet.jsx';
 
-export const TweetStream = ({tweets}) => (
+export const TweetStream = ({tweets, unseenTweets, updateTweets}) => (
   <div id="stream" className="container">
     <div className="row">
       <div className="col-md-4 col-lg-3">
@@ -56,7 +56,8 @@ export const TweetStream = ({tweets}) => (
           <li className="list-group-item">
             <h4 className="list-group-item-heading">Tweets</h4>
           </li>
-
+          
+          < UnseenTweets unseenTweets={unseenTweets} updateTweets={updateTweets}/>
           {
             tweets.map(function(tweet) {
               return <Tweet key={tweet._id} tweet={tweet} />
@@ -93,4 +94,24 @@ export const TweetStream = ({tweets}) => (
   </div>
 );
 
-
+class UnseenTweets extends React.Component {
+  constructor() {
+    super();
+    this.renderUnseen = this.renderUnseen.bind(this);
+  }
+  renderUnseen() {
+    if (this.props.unseenTweets.length > 0) {
+      return (
+        <li className="list-group-item tweet">
+          <p>
+            There are {this.props.unseenTweets.length} new tweets!&nbsp;
+            <a className="show-new-tweets" onClick={this.props.updateTweets}>Show</a>
+          </p>
+        </li>
+      )
+    }
+  }
+  render() {
+    return <div>{this.renderUnseen()}</div>
+  }
+}
