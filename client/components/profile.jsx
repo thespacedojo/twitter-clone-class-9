@@ -1,6 +1,7 @@
 import React from 'react';
+import {Tweet} from './tweet.jsx';
 
-export const Profile = () => (
+export const Profile = ({tweets, currentUser, user}) => (
   <div>
     <div id="profile-background"></div>
 
@@ -58,57 +59,11 @@ export const Profile = () => (
               <h4 className="list-group-item-heading">My Latest Tweets</h4>
             </li>
 
-            <li className="list-group-item tweet">
-              <h5 className="tweet-author">amanda saffer <span className="author-info"><a href="#">@12pixels &middot; 16m</a></span></h5>
-              <p className="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates minus rem vero quidem eligendi consectetur harum quod ratione debitis. </p>
-
-              <span className="expand"><a href="#">Expand</a></span>
-
-              <div className="tweet-options pull-right">
-                <button type="button" className="btn btn-default btn-xs"><i className="fa fa-reply"></i> Reply</button>
-                <button type="button" className="btn btn-default btn-xs"><i className="fa fa-retweet"></i> Retweet</button>
-                <button type="button" className="btn btn-default btn-xs"><i className="fa fa-star"></i> Favorite</button>
-              </div>
-            </li>
-
-            <li className="list-group-item tweet">
-              <h5 className="tweet-author">amanda saffer <span className="author-info"><a href="#">@12pixels &middot; 18m</a></span></h5>
-              <p className="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione facere expedita mollitia draco dormiens. #yum #food</p>
-
-              <span className="expand"><a href="#">Expand</a></span>
-
-              <div className="tweet-options pull-right">
-                <button type="button" className="btn btn-default btn-xs"><i className="fa fa-reply"></i> Reply</button>
-                <button type="button" className="btn btn-default btn-xs"><i className="fa fa-retweet"></i> Retweet</button>
-                <button type="button" className="btn btn-default btn-xs"><i className="fa fa-star"></i> Favorite</button>
-              </div>
-            </li>
-
-            <li className="list-group-item tweet">
-              <h5 className="tweet-author">amanda saffer <span className="author-info"><a href="#">@12pixels &middot; 25m</a></span></h5>
-              <p className="list-group-item-text">Dolor sit amet, consectetur adipisicing elit. Voluptates minus rem vero quidem eligendi consectetur harum quod rati.</p>
-
-              <span className="expand"><a href="#">Expand</a></span>
-
-              <div className="tweet-options pull-right">
-                <button type="button" className="btn btn-default btn-xs"><i className="fa fa-reply"></i> Reply</button>
-                <button type="button" className="btn btn-default btn-xs"><i className="fa fa-retweet"></i> Retweet</button>
-                <button type="button" className="btn btn-default btn-xs"><i className="fa fa-star"></i> Favorite</button>
-              </div>
-            </li>
-
-            <li className="list-group-item tweet">
-              <h5 className="tweet-author">amanda saffer <span className="author-info"><a href="#">@12pixels &middot; 26m</a></span></h5>
-              <p className="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione facere expedita mollitia draco dormiens. #yum #food</p>
-
-              <span className="expand"><a href="#">Expand</a></span>
-
-              <div className="tweet-options pull-right">
-                <button type="button" className="btn btn-default btn-xs"><i className="fa fa-reply"></i> Reply</button>
-                <button type="button" className="btn btn-default btn-xs"><i className="fa fa-retweet"></i> Retweet</button>
-                <button type="button" className="btn btn-default btn-xs"><i className="fa fa-star"></i> Favorite</button>
-              </div>
-            </li>
+          {
+            tweets.map(function(tweet) {
+              return <Tweet key={tweet._id} tweet={tweet} />
+            })
+          }
 
             <li className="list-group-item load-more">
               <a href="#">Load more tweets</a>

@@ -8,6 +8,6 @@ export const AppLayout = ({content}) => (
       <AppNavbar />
     </header>
     <FlashDisplay />
-    {content}
+    { content() }
   </div>
 );

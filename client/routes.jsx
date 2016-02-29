@@ -4,7 +4,7 @@ import {mount} from 'react-mounter';
 import {AppLayout} from './layout.jsx';
 
 import TweetStream from './containers/tweet_stream.js';
-import {Profile} from './components/profile.jsx';
+import Profile from './containers/profile.jsx';
 import {Notifications} from './components/notifications.jsx';
 import SignIn from './components/sign-in.jsx';
 import SignUp from './components/sign-up.jsx';
@@ -15,16 +15,16 @@ FlowRouter.route("/", {
   name: 'Home',
   action() {
     mount(AppLayout, {
-      content: <TweetStream />
+      content: () =>  (<TweetStream />)
     })
   }
 });
 
-FlowRouter.route("/profile", {
+FlowRouter.route("/u/:username", {
   name: 'Profile',
-  action() {
+  action(params) {
     mount(AppLayout, {
-      content: <Profile />
+      content: () => (<Profile username={params.username}/>)
     })
   }
 });
@@ -33,7 +33,7 @@ FlowRouter.route("/notifications", {
   name: 'Profile',
   action() {
     mount(AppLayout, {
-      content: <Notifications />
+      content: () => (<Notifications />)
     })
   }
 });
@@ -42,7 +42,7 @@ FlowRouter.route("/sign-in", {
   name: 'SignIn',
   action() {
     mount(AppLayout, {
-      content: <SignIn />
+      content: () => (<SignIn />)
     })
   }
 });
@@ -51,7 +51,7 @@ FlowRouter.route("/sign-up", {
   name: 'SignUp',
   action() {
     mount(AppLayout, {
-      content: <SignUp />
+      content: () => (<SignUp />)
     })
   }
 });
