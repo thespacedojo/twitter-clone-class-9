@@ -5,7 +5,7 @@ Meteor.publish('tweets', function() {
 });
 
 Meteor.publish('profile', function(username) {
-  return Meteor.users.find({username: username}, {fields: {emails: 1, profile: 1}});
+  return Meteor.users.find({username: username}, {fields: {emails: 1, profile: 1, username: 1}});
 });
 
 Meteor.publish('profileTweets', function(username) {
